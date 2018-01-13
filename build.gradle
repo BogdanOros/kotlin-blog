@@ -41,3 +41,36 @@ dependencies {
 
     testCompile "org.springframework.boot:spring-boot-starter-test:$spring_boot_version"
 }
+
+sourceSets {
+    integration_test {
+        java {
+            srcDir file('src/integration_test/kotlin')
+        }
+        resources {
+            srcDir file('src/integration_test/resources')
+        }
+    }
+}
+
+task integration_test(type: Test) {
+    group 'verification'
+
+    testClassesDir = sourceSets.integration_test.output.classesDir
+    classpath = sourceSets.integration_test.runtimeClasspath
+}
+
+check.dependsOn integration_test
+
+dependencies {
+    integration_testCompile sourceSets.main.output
+    integration_testCompile configurations.testCompile
+    integration_testCompile sourceSets.test.output
+    integration_testRuntime configurations.testRuntime
+}
+
+idea {
+    module {
+        testSourceDirs += file('src/integration_test/kotlin')
+    }
+}

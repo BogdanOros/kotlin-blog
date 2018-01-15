@@ -35,12 +35,7 @@ jar {
     version = '1.0.0'
 }
 
-dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile "org.springframework.boot:spring-boot-starter-web:$spring_boot_version"
-
-    testCompile "org.springframework.boot:spring-boot-starter-test:$spring_boot_version"
-}
+apply from: 'dependencies.gradle'
 
 sourceSets {
     integration_test {

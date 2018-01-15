@@ -1,0 +1,14 @@
+clients:
+  mobile:
+    id: mobile
+    secret: mobile
+    role: USER
+  web:
+    id: web
+    secret: web
+    role: USER
+  admin:
+    id: admin
+    secret: admin
+    role: ADMIN
+

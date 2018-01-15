@@ -1,0 +1,6 @@
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.springframework.boot:spring-boot-starter-web:$spring_boot_version"
+    compile "org.springframework.boot:spring-boot-starter-security:$spring_boot_version"
+    testCompile "org.springframework.boot:spring-boot-starter-test:1.5.4.RELEASE"
+}

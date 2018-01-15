@@ -31,14 +31,13 @@ class TrustedClientTest {
     @Qualifier(TrustedClientConfiguration.ADMIN)
     lateinit var adminDetail: ClientDetail
 
-    @Value("\${clients.mobile.id}")
+    @Value("\${security.clients.mobile.id}")
     lateinit var mobileId: String
 
-    @Value("\${clients.web.id}")
+    @Value("\${security.clients.web.id}")
     lateinit var webId: String
 
-
-    @Value("\${clients.admin.id}")
+    @Value("\${security.clients.admin.id}")
     lateinit var adminId: String
 
     @Test

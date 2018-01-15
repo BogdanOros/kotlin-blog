@@ -10,12 +10,12 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager
 
 @Configuration
 class ClientDetailsUserServiceConfiguration @Autowired
-constructor(private val clients: MutableMap<String, ClientDetail>) {
+constructor(private val clients: List<ClientDetail>) {
 
     @Bean
     fun detailsService(): UserDetailsService {
         return InMemoryUserDetailsManager().apply {
-            clients.values.forEach { detail -> createUser(buildUserFromClientDetails(detail)) }
+            clients.forEach { detail -> createUser(buildUserFromClientDetails(detail)) }
         }
     }
 

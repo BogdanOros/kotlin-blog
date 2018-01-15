@@ -11,9 +11,9 @@ class ClientNotFoundException(override val message: String) : RuntimeException()
 
 @Service
 class TrustedClientService @Autowired
-constructor(private val clients: MutableMap<String, ClientDetail>) : ClientService {
+constructor(private val clients: List<ClientDetail>) : ClientService {
 
     override fun loadClientById(id: String): ClientDetail {
-        return clients[id] ?: throw ClientNotFoundException("Client with $id not found")
+        return clients.find { it.id == id } ?: throw ClientNotFoundException("Client with $id not found")
     }
 }

@@ -8,23 +8,21 @@ import org.springframework.context.annotation.Configuration
 class TrustedClientConfiguration {
 
     companion object {
-        const val MOBILE = "mobile"
-        const val WEB = "web"
-        const val ADMIN = "admin"
-
-        private const val CLIENTS = "clients."
+        const val MOBILE = "security.clients.mobile"
+        const val WEB = "security.clients.web"
+        const val ADMIN = "security.clients.admin"
     }
 
     @Bean(MOBILE)
-    @ConfigurationProperties(CLIENTS + MOBILE)
+    @ConfigurationProperties(MOBILE)
     fun createMobileClient(): ClientDetail = ClientDetail()
 
     @Bean(WEB)
-    @ConfigurationProperties(CLIENTS + WEB)
+    @ConfigurationProperties(WEB)
     fun createWebClient(): ClientDetail = ClientDetail()
 
     @Bean(ADMIN)
-    @ConfigurationProperties(CLIENTS + ADMIN)
+    @ConfigurationProperties(ADMIN)
     fun createAdminClient(): ClientDetail = ClientDetail()
 
 }

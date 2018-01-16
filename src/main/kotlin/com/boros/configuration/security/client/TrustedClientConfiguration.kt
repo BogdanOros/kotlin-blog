@@ -15,14 +15,20 @@ class TrustedClientConfiguration {
 
     @Bean(MOBILE)
     @ConfigurationProperties(MOBILE)
-    fun createMobileClient(): ClientDetail = ClientDetail()
+    fun createMobileClient(): ClientDetails = BaseClientDetails()
 
     @Bean(WEB)
     @ConfigurationProperties(WEB)
-    fun createWebClient(): ClientDetail = ClientDetail()
+    fun createWebClient(): ClientDetails = BaseClientDetails()
 
     @Bean(ADMIN)
     @ConfigurationProperties(ADMIN)
-    fun createAdminClient(): ClientDetail = ClientDetail()
+    fun createAdminClient(): ClientDetails = BaseClientDetails()
+
+    private class BaseClientDetails : ClientDetails {
+        override lateinit var id: String
+        override lateinit var secret: String
+        override lateinit var role: String
+    }
 
 }

@@ -10,7 +10,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager
 
 @Configuration
 class ClientDetailsUserServiceConfiguration @Autowired
-constructor(private val clients: List<ClientDetail>) {
+constructor(private val clients: List<ClientDetails>) {
 
     @Bean
     fun detailsService(): UserDetailsService {
@@ -19,7 +19,7 @@ constructor(private val clients: List<ClientDetail>) {
         }
     }
 
-    fun buildUserFromClientDetails(detail: ClientDetail): UserDetails {
+    fun buildUserFromClientDetails(detail: ClientDetails): UserDetails {
         return User.withUsername(detail.id)
                 .password(detail.secret)
                 .roles(detail.role)

@@ -1,5 +1,5 @@
 import com.boros.BlogApplication
-import com.boros.configuration.security.client.ClientDetail
+import com.boros.configuration.security.client.ClientDetails
 import com.boros.configuration.security.client.ClientNotFoundException
 import com.boros.configuration.security.client.ClientService
 import com.boros.configuration.security.client.TrustedClientConfiguration
@@ -21,15 +21,15 @@ class TrustedClientTest {
 
     @Autowired
     @Qualifier(TrustedClientConfiguration.MOBILE)
-    lateinit var mobileDetail: ClientDetail
+    lateinit var mobileDetail: ClientDetails
 
     @Autowired
     @Qualifier(TrustedClientConfiguration.WEB)
-    lateinit var webDetail: ClientDetail
+    lateinit var webDetail: ClientDetails
 
     @Autowired
     @Qualifier(TrustedClientConfiguration.ADMIN)
-    lateinit var adminDetail: ClientDetail
+    lateinit var adminDetail: ClientDetails
 
     @Value("\${security.clients.mobile.id}")
     lateinit var mobileId: String
